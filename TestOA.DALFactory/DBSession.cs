@@ -14,7 +14,7 @@ namespace TestOA.DALFactory
     /// 数据会话层：就是一个工厂类，负者完成所有数据操作类实例的常见，然后业务层通过数据会话层来获取要操作数据类的实例，所以数据会话层与数据层解耦
     /// 在数据会话层中提供一个方法：完成所有数据的保存
     /// </summary>
-    public class DBSession
+    public class DBSession : IDBSession
     {
         public DbContext Db
         {
