@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBaseService.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestOA.IDAL\TestOA.IDAL.csproj">
+      <Project>{8A4AF44B-BAA9-4F8F-8B86-5997B6D6A2D3}</Project>
+      <Name>TestOA.IDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestOA.Model\TestOA.Model.csproj">
+      <Project>{8038825C-1C27-4FC3-9D46-6671318E772D}</Project>
+      <Name>TestOA.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,19 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestOA.DALFactory;
+using TestOA.IBLL;
 using TestOA.IDAL;
 using TestOA.Model;
 
 namespace TestOA.BLL
 {
-    public class UserInfoService : BaseService<UserInfo>
+    public class UserInfoService : BaseService<UserInfo>, IUserService
     {
-        public IDBSession CurrentDbSession
+        public override void SetCurrentDal()
         {
-            get
+            CurrentDal = this.CurrentDBSession.UserInfoDal;
+        }
+
+        public IEnumerable<UserInfo> AddHHH()
+        {
+            List<UserInfo> list = new List<UserInfo>();
+            list.Add(new UserInfo
             {
-                return new DBSession();
-            }
+                UName = "zychhazl99",
+                UPwd = "zychhazl99"
+            });
+
+            var temp = CurrentDBSession.Db.Set<UserInfo>().AddRange(list);
+            CurrentDBSession.SaveChanges();
+            return temp;
         }
     }
+
 }
