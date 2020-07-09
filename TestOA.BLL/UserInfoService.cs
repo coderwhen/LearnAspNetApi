@@ -10,26 +10,27 @@ using TestOA.Model;
 
 namespace TestOA.BLL
 {
-    public class UserInfoService : BaseService<UserInfo>, IUserService
+    public class UserInfoService : BaseService<UserInfo>, IUserInfoService
     {
         public override void SetCurrentDal()
         {
             CurrentDal = this.CurrentDBSession.UserInfoDal;
         }
 
-        public IEnumerable<UserInfo> AddHHH()
+        public UserInfo AddUserInfo(UserInfo userInfo)
         {
-            List<UserInfo> list = new List<UserInfo>();
-            list.Add(new UserInfo
-            {
-                UName = "zychhazl99",
-                UPwd = "zychhazl99"
-            });
-
-            var temp = CurrentDBSession.Db.Set<UserInfo>().AddRange(list);
+            var temp = CurrentDBSession.Db.Set<UserInfo>().Add(userInfo);
             CurrentDBSession.SaveChanges();
             return temp;
         }
-    }
 
+        public IEnumerable<UserInfo> DeleteUserInfo(List<long> ids)
+        {
+            var temp = LoadEntities(c => true).AsQueryable().Where(c => ids.Contains(c.Uid)).AsEnumerable();
+            temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp);
+            if (CurrentDBSession.SaveChanges())
+                return temp;
+            else return null;
+        }
+    }
 }

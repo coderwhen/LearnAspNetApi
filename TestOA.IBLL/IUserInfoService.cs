@@ -7,7 +7,10 @@ using TestOA.Model;
 
 namespace TestOA.IBLL
 {
-    public interface IUserService:IBaseService<UserInfo>
+    public interface IUserInfoService : IBaseService<UserInfo>
     {
+        UserInfo AddUserInfo(UserInfo userInfo);
+
+        IEnumerable<UserInfo> DeleteUserInfo(List<long> ids);
     }
 }
