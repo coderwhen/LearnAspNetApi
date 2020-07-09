@@ -12,5 +12,7 @@ namespace TestOA.IBLL
         UserInfo AddUserInfo(UserInfo userInfo);
 
         IEnumerable<UserInfo> DeleteUserInfo(List<long> ids);
+
+        object DeleteAllUserInfo();
     }
 }

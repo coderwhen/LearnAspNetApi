@@ -13,7 +13,7 @@ namespace TestOA.WebApp.Controllers
     public class UserInfoController : ApiController
     {
         IBLL.IUserInfoService UserInfoService = new BLL.UserInfoService();
-
+        [HttpGet]
         [Route("getuserinfo")]
         public object GetUserInfo()
         {
@@ -21,6 +21,7 @@ namespace TestOA.WebApp.Controllers
             return Json(res);
         }
 
+        [HttpPost]
         [Route("adduserinfo")]
         public object AddUserInfo([FromBody]UserInfo userInfo)
         {
@@ -28,13 +29,20 @@ namespace TestOA.WebApp.Controllers
             return Json(res);
         }
 
-        [Route("deleteuserInfo")]
+        [HttpPost]
+        [Route("deleteuserinfo")]
         public object DeleteUserInfo([FromBody]List<long> ids)
         {
-            if (ids.Count > 0)
-                return UserInfoService.DeleteUserInfo(ids);
-            else
-                return Json(new { message = "没有数据" });
+            if (ids != null)
+                return Json(new
+                {
+                    ids,
+                    ids.Count
+                });
+            return new
+            {
+                ids
+            };
         }
     }
 }

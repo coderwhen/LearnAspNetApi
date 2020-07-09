@@ -32,5 +32,13 @@ namespace TestOA.BLL
                 return temp;
             else return null;
         }
+
+        public object DeleteAllUserInfo()
+        {
+            var userInfoList = LoadEntities(c => true);
+            var temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(userInfoList);
+            CurrentDBSession.Db.SaveChanges();
+            return temp;
+        }
     }
 }
