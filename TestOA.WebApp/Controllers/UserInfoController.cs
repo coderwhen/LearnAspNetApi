@@ -10,12 +10,12 @@ using TestOA.Model;
 namespace TestOA.WebApp.Controllers
 {
 
-    [RoutePrefix("api/userinfo")]
+    [RoutePrefix("api/UserInfo")]
     public class UserInfoController : ApiController
     {
         IUserInfoService UserInfoService { get; set; }
         [HttpGet]
-        [Route("getuserinfo")]
+        [Route("GetUserInfo")]
         public object GetUserInfo()
         {
             var res = UserInfoService.LoadEntities(c => true);
@@ -23,27 +23,19 @@ namespace TestOA.WebApp.Controllers
         }
 
         [HttpPost]
-        [Route("adduserinfo")]
+        [Route("AddUserInfo")]
         public object AddUserInfo([FromBody]UserInfo userInfo)
         {
             var res = UserInfoService.AddUserInfo(userInfo);
             return Json(res);
         }
 
-        [HttpPost]
-        [Route("deleteuserinfo")]
+        [HttpGet]
+        [Route("DeleteUserInfo")]
         public object DeleteUserInfo([FromBody]List<long> ids)
         {
-            if (ids != null)
-                return Json(new
-                {
-                    ids,
-                    ids.Count
-                });
-            return new
-            {
-                ids
-            };
+            int i = 0;
+            return 0 / i;
         }
     }
 }
