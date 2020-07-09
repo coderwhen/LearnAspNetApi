@@ -12,19 +12,19 @@ namespace TestOA.WebApp.Controllers
     [RoutePrefix("api/userinfo")]
     public class UserInfoController : ApiController
     {
-        IBLL.IUserInfoService UserService = new BLL.UserInfoService();
+        IBLL.IUserInfoService UserInfoService = new BLL.UserInfoService();
 
         [Route("getuserinfo")]
         public object GetUserInfo()
         {
-            var res = UserService.LoadEntities(c => true);
+            var res = UserInfoService.LoadEntities(c => true);
             return Json(res);
         }
 
         [Route("adduserinfo")]
         public object AddUserInfo([FromBody]UserInfo userInfo)
         {
-            var res = UserService.AddUserInfo(userInfo);
+            var res = UserInfoService.AddUserInfo(userInfo);
             return Json(res);
         }
 
@@ -32,7 +32,7 @@ namespace TestOA.WebApp.Controllers
         public object DeleteUserInfo([FromBody]List<long> ids)
         {
             if (ids.Count > 0)
-                return UserService.DeleteUserInfo(ids);
+                return UserInfoService.DeleteUserInfo(ids);
             else
                 return Json(new { message = "没有数据" });
         }
