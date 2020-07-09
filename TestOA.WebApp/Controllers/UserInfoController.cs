@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using TestOA.IBLL;
 using TestOA.Model;
+using TestOA.WebApp.Models;
 
 namespace TestOA.WebApp.Controllers
 {
-
+    [MyActionFilter]
     [RoutePrefix("api/UserInfo")]
     public class UserInfoController : ApiController
     {

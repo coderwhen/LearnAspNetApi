@@ -11,7 +11,8 @@ namespace TestOA.WebApp
         public static void Register(HttpConfiguration config)
         {
             // Web API 配置和服务
-            config.Filters.Add(new ExceptionAPIFilter());
+
+
             // Web API 路由
             config.MapHttpAttributeRoutes();
 
