@@ -190,10 +190,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestOA.BLL\TestOA.BLL.csproj">
-      <Project>{988aabce-86fb-4f05-8091-7593dac8a6da}</Project>
-      <Name>TestOA.BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TestOA.IBLL\TestOA.IBLL.csproj">
       <Project>{4cfd61d7-adb3-48f2-a9c1-6fb9beb77961}</Project>
       <Name>TestOA.IBLL</Name>
