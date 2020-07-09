@@ -7,17 +7,18 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using Spring.Web.Mvc;
 
 namespace TestOA.WebApp
 {
-    public class Global : HttpApplication
+    public class Global : SpringMvcApplication
     {
         void Application_Start(object sender, EventArgs e)
         {
             // 在应用程序启动时运行的代码
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

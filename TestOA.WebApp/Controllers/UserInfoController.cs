@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TestOA.IBLL;
 using TestOA.Model;
 
 namespace TestOA.WebApp.Controllers
@@ -12,7 +13,7 @@ namespace TestOA.WebApp.Controllers
     [RoutePrefix("api/userinfo")]
     public class UserInfoController : ApiController
     {
-        IBLL.IUserInfoService UserInfoService = new BLL.UserInfoService();
+        IUserInfoService UserInfoService { get; set; }
         [HttpGet]
         [Route("getuserinfo")]
         public object GetUserInfo()
