@@ -7,7 +7,7 @@ using TestOA.Model;
 
 namespace TestOA.IDAL
 {
-    public interface IUserInfoDal : IBaseDal<UserInfo>
+    public partial interface IUserInfoDal : IBaseDal<UserInfo>
     {
         //定义特有的方法
     }
