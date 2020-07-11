@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using TestOA.IBLL;
 using TestOA.Model;
@@ -10,7 +11,7 @@ using TestOA.WebApp.Models;
 
 namespace TestOA.WebApp.Controllers
 {
-    [MyActionFilter]
+    //[MyActionFilter]
     [RoutePrefix("api/UserInfo")]
     public class UserInfoController : ApiController
     {
@@ -37,6 +38,14 @@ namespace TestOA.WebApp.Controllers
         {
             int i = 0;
             return 0 / i;
+        }
+
+        [HttpGet]
+        [Route("GetIpAddress")]
+        public object GetIpAddress()
+        {
+            var ip = HttpContext.Current.Request.UserHostAddress;
+            return Json(new { ip });
         }
     }
 }

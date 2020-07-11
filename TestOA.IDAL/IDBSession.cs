@@ -10,7 +10,7 @@ namespace TestOA.IDAL
     /// <summary>
     /// 
     /// </summary>
-    public interface IDBSession
+    public partial interface IDBSession
     {
         DbContext Db { get; }
         IUserInfoDal UserInfoDal { get; set; }

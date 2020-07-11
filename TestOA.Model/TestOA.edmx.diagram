@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="385a5ca0d07941728f5d1e805bd99c4d" Name="Diagram1">
         <EntityTypeShape EntityType="DBTestOAModel.UserInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBTestOAModel.Cart" Width="1.5" PointX="3" PointY="4.125" />
+        <AssociationConnector Association="DBTestOAModel.FK_Cart_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
