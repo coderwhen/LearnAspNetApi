@@ -1,5 +1,5 @@
 ﻿
- 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +11,8 @@ namespace TestOA.IDAL
 {
     public partial interface IDBSession
     {
-			ICartDal CartDal { get; set; }
-			IGoodsDal GoodsDal { get; set; }
-			IUserInfoDal UserInfoDal { get; set; }
-		}
+        ICartDal CartDal { get; set; }
+        IGoodsDal GoodsDal { get; set; }
+        IUserInfoDal UserInfoDal { get; set; }
+    }
 }

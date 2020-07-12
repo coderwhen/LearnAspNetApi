@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestOA.IDAL;
 using TestOA.Model;
 
 namespace TestOA.DAL
 {
-    public partial class CartDal : BaseDal<Cart>
+    public partial class CartDal : BaseDal<Cart>, ICartDal
     {
     }
 }

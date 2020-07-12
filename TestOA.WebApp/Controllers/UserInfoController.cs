@@ -12,12 +12,12 @@ using TestOA.WebApp.Models;
 namespace TestOA.WebApp.Controllers
 {
     //[MyActionFilter]
-    [RoutePrefix("api/UserInfo")]
+    //[RoutePrefix("api/UserInfo")]
     public class UserInfoController : ApiController
     {
         IUserInfoService UserInfoService { get; set; }
         [HttpGet]
-        [Route("GetUserInfo")]
+        //[Route("GetUserInfo")]
         public object GetUserInfo()
         {
             var res = UserInfoService.LoadEntities(c => true);
@@ -25,7 +25,7 @@ namespace TestOA.WebApp.Controllers
         }
 
         [HttpPost]
-        [Route("AddUserInfo")]
+        //[Route("AddUserInfo")]
         public object AddUserInfo([FromBody]UserInfo userInfo)
         {
             var res = UserInfoService.AddUserInfo(userInfo);
@@ -33,7 +33,7 @@ namespace TestOA.WebApp.Controllers
         }
 
         [HttpGet]
-        [Route("DeleteUserInfo")]
+        //[Route("DeleteUserInfo")]
         public object DeleteUserInfo([FromBody]List<long> ids)
         {
             int i = 0;
@@ -41,7 +41,7 @@ namespace TestOA.WebApp.Controllers
         }
 
         [HttpGet]
-        [Route("GetIpAddress")]
+        //[Route("GetIpAddress")]
         public object GetIpAddress()
         {
             var ip = HttpContext.Current.Request.UserHostAddress;

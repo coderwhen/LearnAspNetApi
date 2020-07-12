@@ -88,7 +88,6 @@
         <EntityType Name="Goods">
           <Key>
             <PropertyRef Name="GoodsID" />
-            <PropertyRef Name="Price" />
           </Key>
           <Property Name="GoodsID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />

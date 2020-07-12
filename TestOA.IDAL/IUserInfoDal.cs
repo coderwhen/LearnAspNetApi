@@ -10,5 +10,6 @@ namespace TestOA.IDAL
     public partial interface IUserInfoDal : IBaseDal<UserInfo>
     {
         //定义特有的方法
+        bool IsExist(UserInfo userInfo);
     }
 }

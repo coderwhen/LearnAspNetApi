@@ -1,6 +1,4 @@
-﻿
- 
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -11,9 +9,9 @@ using TestOA.Model;
 
 namespace TestOA.DALFactory
 {
-	public partial class DBSession : IDBSession
+    public partial class DBSession : IDBSession
     {
-			private ICartDal _CartDal;
+        private ICartDal _CartDal;
 
         public ICartDal CartDal
         {
@@ -31,7 +29,7 @@ namespace TestOA.DALFactory
                 _CartDal = value;
             }
         }
-			private IGoodsDal _GoodsDal;
+        private IGoodsDal _GoodsDal;
 
         public IGoodsDal GoodsDal
         {
@@ -49,7 +47,7 @@ namespace TestOA.DALFactory
                 _GoodsDal = value;
             }
         }
-			private IUserInfoDal _UserInfoDal;
+        private IUserInfoDal _UserInfoDal;
 
         public IUserInfoDal UserInfoDal
         {
@@ -67,5 +65,5 @@ namespace TestOA.DALFactory
                 _UserInfoDal = value;
             }
         }
-		}
+    }
 }

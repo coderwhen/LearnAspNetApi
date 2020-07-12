@@ -11,6 +11,9 @@ namespace TestOA.DAL
 {
     public partial class UserInfoDal : BaseDal<UserInfo>, IUserInfoDal
     {
-
+        public bool IsExist(UserInfo userInfo)
+        {
+            return LoadEntities(c => userInfo.Uid == c.Uid).Count() > 0;
+        }
     }
 }
