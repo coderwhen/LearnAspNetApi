@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="DBTestOAModel.UserInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBTestOAModel.Cart" Width="1.5" PointX="3" PointY="4.125" />
         <AssociationConnector Association="DBTestOAModel.FK_Cart_User" />
+        <EntityTypeShape EntityType="DBTestOAModel.Goods" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -14,7 +14,7 @@ namespace TestOA.DALFactory
             IDAL.IDBSession DbSession = (IDAL.IDBSession)CallContext.GetData("dbSession");
             if (DbSession == null)
             {
-                DbSession = new DALFactory.DBSession();
+                DbSession = new DBSession();
                 CallContext.SetData("dbSession", DbSession);
             }
             return DbSession;

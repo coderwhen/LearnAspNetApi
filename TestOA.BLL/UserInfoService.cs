@@ -10,13 +10,8 @@ using TestOA.Model;
 
 namespace TestOA.BLL
 {
-    public class UserInfoService : BaseService<UserInfo>, IUserInfoService
+    public partial class UserInfoService : BaseService<UserInfo>, IUserInfoService
     {
-        public override void SetCurrentDal()
-        {
-            CurrentDal = this.CurrentDBSession.UserInfoDal;
-        }
-
         public UserInfo AddUserInfo(UserInfo userInfo)
         {
             var temp = CurrentDBSession.Db.Set<UserInfo>().Add(userInfo);

@@ -7,7 +7,7 @@ using TestOA.Model;
 
 namespace TestOA.IBLL
 {
-    public interface IUserInfoService : IBaseService<UserInfo>
+    public partial interface IUserInfoService : IBaseService<UserInfo>
     {
         UserInfo AddUserInfo(UserInfo userInfo);
 

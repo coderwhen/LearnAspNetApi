@@ -1,18 +1,18 @@
-﻿using System;
+﻿
+ 
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestOA.Model;
 
 namespace TestOA.IDAL
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial interface IDBSession
     {
-        DbContext Db { get; }
-        bool SaveChanges();
-    }
+			ICartDal CartDal { get; set; }
+			IGoodsDal GoodsDal { get; set; }
+			IUserInfoDal UserInfoDal { get; set; }
+		}
 }

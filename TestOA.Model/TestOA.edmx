@@ -14,6 +14,13 @@
           <Property Name="Price" Type="decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="UserInfo_Uid" Type="bigint" Nullable="false" />
         </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodsID" />
+          </Key>
+          <Property Name="GoodsID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="money" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserInfo">
           <Key>
             <PropertyRef Name="Uid" />
@@ -36,6 +43,7 @@
         </Association>
         <EntityContainer Name="DBTestOAModelStoreContainer">
           <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cart_User" Association="Self.FK_Cart_User">
             <End Role="UserInfo" EntitySet="UserInfo" />
@@ -62,6 +70,7 @@
             <End Role="UserInfo" EntitySet="UserInfo" />
             <End Role="Cart" EntitySet="Cart" />
           </AssociationSet>
+          <EntitySet Name="Goods" EntityType="DBTestOAModel.Goods" />
         </EntityContainer>
         <EntityType Name="Cart">
           <Key>
@@ -76,6 +85,14 @@
           <End Type="DBTestOAModel.UserInfo" Role="UserInfo" Multiplicity="1" />
           <End Type="DBTestOAModel.Cart" Role="Cart" Multiplicity="*" />
         </Association>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodsID" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="GoodsID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -108,6 +125,14 @@
               <ScalarProperty Name="Uid" ColumnName="UserInfo_Uid" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="DBTestOAModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="GoodsID" ColumnName="GoodsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
