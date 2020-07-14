@@ -10,9 +10,6 @@ namespace TestOA.IBLL
     public partial interface IUserInfoService : IBaseService<UserInfo>
     {
         UserInfo AddUserInfo(UserInfo userInfo);
-
-        IEnumerable<UserInfo> DeleteUserInfo(List<long> ids);
-
-        object DeleteAllUserInfo();
+        IEnumerable<UserInfo> DeleteUserInfo(UserInfo userInfo);
     }
 }

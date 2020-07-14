@@ -28,12 +28,10 @@ namespace TestOA.BLL
         {
             return CurrentDal.LoadEntities(whereLambda);
         }
-
         public IQueryable<T> LoadPageEntities<s>(int pageIndex, int pageSize, out int totalCount, System.Linq.Expressions.Expression<Func<T, bool>> whereLambda, System.Linq.Expressions.Expression<Func<T, s>> orderByLambda, bool isAsc)
         {
             return CurrentDal.LoadPageEntities<s>(pageIndex, pageSize, out totalCount, whereLambda, orderByLambda, isAsc);
         }
-
         /// <summary>
         /// 添加
         /// </summary>
@@ -44,17 +42,15 @@ namespace TestOA.BLL
             var temp = CurrentDal.AddEntity(entity);
             return temp;
         }
-
         /// <summary>
         /// 删除
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool DeleteEntity(T entity)
+        public T DeleteEntity(T entity)
         {
             return CurrentDal.DeleteEntity(entity);
         }
-
         /// <summary>
         /// 修改
         /// </summary>

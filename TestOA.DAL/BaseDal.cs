@@ -27,10 +27,10 @@ namespace TestOA.DAL
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool DeleteEntity(T entity)
+        public T DeleteEntity(T entity)
         {
             Db.Entry<T>(entity).State = EntityState.Deleted;
-            return true;
+            return entity;
         }
 
         /// <summary>

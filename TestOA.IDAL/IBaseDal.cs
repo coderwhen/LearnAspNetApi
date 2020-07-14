@@ -17,7 +17,7 @@ namespace TestOA.IDAL
 
         IQueryable<T> LoadPageEntities<s>(int pageIndex, int pageSize, out int totalCount, System.Linq.Expressions.Expression<Func<T, bool>> whereLambda, System.Linq.Expressions.Expression<Func<T, s>> orderByLambda, bool isAsc);
 
-        bool DeleteEntity(T entity);
+        T DeleteEntity(T entity);
         bool EditEntity(T entity);
         T AddEntity(T entity);
     }

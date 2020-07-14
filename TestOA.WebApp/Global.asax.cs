@@ -22,6 +22,9 @@ namespace TestOA.WebApp
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //配置自己的线程任务
+            IndexManager.GetInstance().StartThread();
         }
     }
 }

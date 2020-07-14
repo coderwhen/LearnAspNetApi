@@ -19,6 +19,6 @@ namespace TestOA.IBLL
 
         T AddEntity(T entity);
         bool EditEntity(T entity);
-        bool DeleteEntity(T entity);
+        T DeleteEntity(T entity);
     }
 }

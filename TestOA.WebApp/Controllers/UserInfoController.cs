@@ -23,23 +23,20 @@ namespace TestOA.WebApp.Controllers
             var res = UserInfoService.LoadEntities(c => true);
             return Json(res);
         }
-
         [HttpPost]
         //[Route("AddUserInfo")]
         public object AddUserInfo([FromBody]UserInfo userInfo)
         {
             var res = UserInfoService.AddUserInfo(userInfo);
+            IndexManager.GetInstance().AddQueue(res);
             return Json(res);
         }
-
-        [HttpGet]
-        //[Route("DeleteUserInfo")]
-        public object DeleteUserInfo([FromBody]List<long> ids)
+        [HttpPost]
+        public object DeleteUserInfo(UserInfo userInfo)
         {
-            int i = 0;
-            return 0 / i;
+            var res = UserInfoService.DeleteUserInfo(userInfo);
+            return Json(res);
         }
-
         [HttpGet]
         //[Route("GetIpAddress")]
         public object GetIpAddress()

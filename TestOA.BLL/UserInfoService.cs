@@ -19,21 +19,17 @@ namespace TestOA.BLL
             return temp;
         }
 
-        public IEnumerable<UserInfo> DeleteUserInfo(List<long> ids)
+        public IEnumerable<UserInfo> DeleteUserInfo(UserInfo userInfo)
         {
-            var temp = LoadEntities(c => true).AsQueryable().Where(c => ids.Contains(c.Uid)).AsEnumerable();
-            temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp);
-            if (CurrentDBSession.SaveChanges())
-                return temp;
-            else return null;
-        }
-
-        public object DeleteAllUserInfo()
-        {
-            var userInfoList = LoadEntities(c => true);
-            var temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(userInfoList);
-            CurrentDBSession.Db.SaveChanges();
-            return temp;
+            //var temp = CurrentDBSession.Db.Set<UserInfo>().Where(u => u.UName == userInfo.UName && u.UPwd == userInfo.UPwd);
+            //var count = temp.Count();
+            //temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp).AsQueryable();
+            //CurrentDBSession.SaveChanges();
+            //var db1 = CurrentDBSession.Db.Set<UserInfo>();
+            var db1 = CurrentDal.LoadEntities(u => true);
+            db1 = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(db1).AsQueryable();
+            //var db2 = CurrentDBSession.Db.Set<UserInfo>();
+            return db1;
         }
     }
 }

@@ -17,6 +17,9 @@ namespace TestOA.DAL
 		public partial class CartDal : BaseDal<Cart>, ICartDal
     {
 	}		
+		public partial class GoodsDal : BaseDal<Goods>, IGoodsDal
+    {
+	}		
 		public partial class UserInfoDal : BaseDal<UserInfo>, IUserInfoDal
     {
 	}		
