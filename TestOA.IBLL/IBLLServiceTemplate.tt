@@ -20,7 +20,7 @@ using TestOA.Model;
 namespace TestOA.IBLL
 {
 	<#foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name)){#>
-	public partial interface I<#=entity.Name#>Service : IBaseService<<#=entity.Name#>> 
+public partial interface I<#=entity.Name#>Service : IBaseService<<#=entity.Name#>>
 	{
 	}
 	<#}#>

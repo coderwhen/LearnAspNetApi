@@ -50,9 +50,8 @@ namespace TestOA.DAL
         /// <returns></returns>
         public IQueryable<T> LoadEntities(Expression<Func<T, bool>> whereLambda)
         {
-            return Db.Set<T>().Where<T>(whereLambda);
+            return Db.Set<T>().Where(whereLambda);
         }
-
         /// <summary>
         /// 分页过滤
         /// </summary>
@@ -77,6 +76,11 @@ namespace TestOA.DAL
                 temp = temp.OrderByDescending<T, s>(orderByLambda).Skip<T>((pageIndex - 1) * pageSize).Take<T>(pageSize);
             }
             return temp;
+        }
+
+        public DbContext GetDbContext()
+        {
+            return DBContextFactory.CreateDbContext();
         }
     }
 }

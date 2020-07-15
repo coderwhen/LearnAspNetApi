@@ -1,5 +1,5 @@
 ﻿
- 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +13,20 @@ namespace TestOA.DALFactory
 {
     public partial class AbstractFactory
     {
-			public static ICartDal CreateCartDal()
-		{
-			string fullClassName = NameSpace + ".CartDal";
-			return CreateInstance(fullClassName) as ICartDal;
+        public static ICartDal CreateCartDal()
+        {
+            string fullClassName = NameSpace + ".CartDal";
+            return CreateInstance(fullClassName) as ICartDal;
         }
-			public static IGoodsDal CreateGoodsDal()
-		{
-			string fullClassName = NameSpace + ".GoodsDal";
-			return CreateInstance(fullClassName) as IGoodsDal;
+        public static IGoodsDal CreateGoodsDal()
+        {
+            string fullClassName = NameSpace + ".GoodsDal";
+            return CreateInstance(fullClassName) as IGoodsDal;
         }
-			public static IUserInfoDal CreateUserInfoDal()
-		{
-			string fullClassName = NameSpace + ".UserInfoDal";
-			return CreateInstance(fullClassName) as IUserInfoDal;
+        public static IUserInfoDal CreateUserInfoDal()
+        {
+            string fullClassName = NameSpace + ".UserInfoDal";
+            return CreateInstance(fullClassName) as IUserInfoDal;
         }
-		}
+    }
 }

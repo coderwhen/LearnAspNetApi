@@ -20,7 +20,13 @@ namespace TestOA.WebApp.Controllers
         //[Route("GetUserInfo")]
         public object GetUserInfo()
         {
-            var res = UserInfoService.LoadEntities(c => true);
+            var res = UserInfoService.LoadEntities(c => true).Select(m => new
+            {
+                uId = m.Uid,
+                uPwd = m.UPwd,
+                uName = m.UName,
+                cartList = m.Cart
+            });
             return Json(res);
         }
         [HttpPost]

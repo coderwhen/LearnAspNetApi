@@ -12,18 +12,19 @@ namespace TestOA.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class DBTestOAEntities : DbContext
     {
-        public DBTestOAEntities() : base("name=DBTestOAEntities")
+        public DBTestOAEntities()
+            : base("name=DBTestOAEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<UserInfo> UserInfo { get; set; }
         public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Goods> Goods { get; set; }

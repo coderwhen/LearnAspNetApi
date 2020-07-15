@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,6 @@ namespace TestOA.IDAL
         T DeleteEntity(T entity);
         bool EditEntity(T entity);
         T AddEntity(T entity);
+        DbContext GetDbContext();
     }
 }
