@@ -33,10 +33,10 @@ namespace TestOA.WebApp.Controllers
 
         [HttpGet]
         [Route("DeleteUserInfo")]
-        public object DeleteUserInfo([FromBody]List<long> ids)
+        public object DeleteUserInfo()
         {
-            int i = 0;
-            return 0 / i;
+            var result = UserInfoService.DeleteAllUserInfo(null);
+            return Json(result);
         }
     }
 }

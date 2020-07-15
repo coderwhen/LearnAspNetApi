@@ -27,10 +27,8 @@ namespace TestOA.BLL
         public IEnumerable<UserInfo> DeleteUserInfo(List<long> ids)
         {
             var temp = LoadEntities(c => true).AsQueryable().Where(c => ids.Contains(c.Uid)).AsEnumerable();
-            temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp);
-            if (CurrentDBSession.SaveChanges())
-                return temp;
-            else return null;
+            temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp).ToList();
+            return temp;
         }
 
         public object DeleteAllUserInfo()

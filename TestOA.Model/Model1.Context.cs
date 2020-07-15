@@ -26,5 +26,9 @@ namespace TestOA.Model
         }
     
         public virtual DbSet<UserInfo> UserInfo { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
+        public virtual DbSet<Goods> Goods { get; set; }
+        public virtual DbSet<KeyWordsRank> KeyWordsRank { get; set; }
+        public virtual DbSet<SearchDetails> SearchDetails { get; set; }
     }
 }
