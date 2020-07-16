@@ -12,7 +12,7 @@ namespace TestOA.DAL
     /// <summary>
     /// 负责创建EF数据操作上下文实例，必须保证线程唯一
     /// </summary>
-    public class DBContextFactory
+    public static class DBContextFactory
     {
         public static DbContext CreateDbContext()
         {

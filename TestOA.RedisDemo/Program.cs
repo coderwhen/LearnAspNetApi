@@ -17,7 +17,7 @@ namespace TestOA.RedisDemo
                 UName = "2250573213",
                 UPwd = "zychhazl99"
             };
-            RedisHelper.redisclient.Set<UserInfo>("user", user, DateTime.Now.AddSeconds(10));
+            RedisHelper.redisclient.Set<UserInfo>("user", user);
             Console.ReadKey();
         }
     }

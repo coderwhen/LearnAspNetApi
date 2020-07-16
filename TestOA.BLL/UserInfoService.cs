@@ -14,7 +14,7 @@ namespace TestOA.BLL
     {
         public override void SetCurrentDal()
         {
-            CurrentDal = this.CurrentDBSession.UserInfoDal;
+            CurrentDal = CurrentDBSession.UserInfoDal;
         }
 
         public UserInfo AddUserInfo(UserInfo userInfo)
@@ -26,10 +26,11 @@ namespace TestOA.BLL
 
         public IEnumerable<UserInfo> DeleteUserInfo(List<long> ids)
         {
-            var temp = LoadEntities(c => true).AsQueryable().Where(c => ids.Contains(c.Uid)).AsEnumerable();
-            temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp);
+            var temp = CurrentDBSession.Db.Set<UserInfo>().Where(u => ids.Contains(u.Uid));
+            var ttt = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp);
+            var tttemp = ttt.ToArray();
             if (CurrentDBSession.SaveChanges())
-                return temp;
+                return tttemp;
             else return null;
         }
 
@@ -37,7 +38,10 @@ namespace TestOA.BLL
         {
             var userInfoList = LoadEntities(c => true);
             var temp = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(userInfoList);
-            CurrentDBSession.Db.SaveChanges();
+            if (CurrentDBSession.SaveChanges())
+            {
+                return new { success = true };
+            }
             return temp;
         }
     }
