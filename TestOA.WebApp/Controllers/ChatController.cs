@@ -10,50 +10,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.WebSockets;
-using TestOA.IBLL;
-using TestOA.Model;
-using TestOA.WebApp.Models;
-using System.Drawing;
 
 namespace TestOA.WebApp.Controllers
 {
-    [RoutePrefix("api/UserInfo")]
-    public class UserInfoController : ApiController
+    [RoutePrefix("api/Chat")]
+    public class ChatController : ApiController
     {
-        IUserInfoService UserInfoService { get; set; }
-        [HttpGet]
-        [Route("GetUserInfo")]
-        public object GetUserInfo()
-        {
-            var res = UserInfoService.LoadEntities(c => true);
-            return Json(res);
-        }
-        [HttpPost]
-        [Route("AddUserInfo")]
-        public object AddUserInfo([FromBody]UserInfo user)
-        {
-            var res = UserInfoService.AddUserInfo(user);
-            return res;
-        }
-
-        [HttpGet]
-        [Route("DeleteUserInfo")]
-        public object DeleteUserInfo()
-        {
-            List<long> list = new List<long>()
-            {
-                100,
-                101,
-                102,
-                103,
-                104,
-                105,
-                106
-            };
-            var result = UserInfoService.DeleteUserInfo(list);
-            return result;
-        }
-
+        public static List<WebSocket> _socketList = new List<WebSocket>();
         [HttpGet]
         [Route("Connect")]
         public HttpResponseMessage Connect(string nickName)
@@ -65,6 +28,7 @@ namespace TestOA.WebApp.Controllers
         public async Task ProcessRequest(AspNetWebSocketContext context)
         {
             var socket = context.WebSocket;//传入的context中有当前的web socket对象
+            _socketList.Add(socket);
             while (true)
             {
                 var buffer = new ArraySegment<byte>(new byte[1024]);
@@ -80,8 +44,13 @@ namespace TestOA.WebApp.Controllers
                     string recvMsg = Encoding.UTF8.GetString(buffer.Array, 0, receivedResult.Count);
                     var recvBytes = Encoding.UTF8.GetBytes(recvMsg);
                     var sendBuffer = new ArraySegment<byte>(recvBytes);
-                    await socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+                    foreach (var _socket in _socketList)
+                    {
+                        await _socket.SendAsync(sendBuffer, WebSocketMessageType.Text, true, CancellationToken.None);
+                    }
                 }
+
+                Thread.Sleep(1000);
             }
         }
     }
