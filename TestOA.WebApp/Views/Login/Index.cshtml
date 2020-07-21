@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<h2 id="h2"></h2>
+<img id="code" style="height:160px;width:160px" src="" />
+<script src="~/Scripts/axios.js"></script>
+<script>
+    window.onload = function () {
+        axios({
+            url: '/Login/GetCode',
+            method: 'GET'
+        }).then(res => {
+            console.log(res)
+            document.getElementById('code').src = "data:image/jpeg;base64," + res.data.data.code
+        })
+
+        //var webSocket = new WebSocket("ws://localhost/Login/CheckLogin");
+        //var h2 = document.getElementById('h2');
+        //webSocket.onopen = function () {
+        //    h2.innerText = "打开链接";
+        //}
+        //webSocket.onerror = function () {
+        //    h2.innerText = ("web socket error");
+        //}
+
+        //webSocket.onmessage = function (event) {
+        //    let data = JSON.parse(event.data)
+        //    console.log(data)
+        //    document.getElementById('h2').innerText = data.message;
+        //}
+    }
+</script>
