@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TestOA.IDAL;
-using TestOA.Model; 
+using TestOA.Model;
 
 namespace TestOA.DAL
 {

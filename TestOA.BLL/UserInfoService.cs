@@ -7,6 +7,7 @@ using TestOA.DALFactory;
 using TestOA.IBLL;
 using TestOA.IDAL;
 using TestOA.Model;
+using System.Web;
 
 namespace TestOA.BLL
 {
@@ -26,12 +27,10 @@ namespace TestOA.BLL
 
         public IEnumerable<UserInfo> DeleteUserInfo(List<long> ids)
         {
-            var temp = CurrentDBSession.Db.Set<UserInfo>().Where(u => ids.Contains(u.Uid));
-            var ttt = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp);
-            var tttemp = ttt.ToArray();
-            if (CurrentDBSession.SaveChanges())
-                return tttemp;
-            else return null;
+            var temp = LoadEntities(u => true);
+            var ttt = CurrentDBSession.Db.Set<UserInfo>().RemoveRange(temp).ToList();
+            CurrentDBSession.SaveChanges();
+            return ttt;
         }
 
         public object DeleteAllUserInfo()

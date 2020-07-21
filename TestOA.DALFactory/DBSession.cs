@@ -24,14 +24,12 @@ namespace TestOA.DALFactory
             }
         }
         private IUserInfoDal _UserInfoDal;
-
         public IUserInfoDal UserInfoDal
         {
             get
             {
                 if (_UserInfoDal == null)
                 {
-                    //_UserInfoDal = new UserInfoDal();
                     _UserInfoDal = AbstractFactory.CreateUserInfoDal();//通过抽象工厂封装了类的实例的创建
                 }
                 return _UserInfoDal;
@@ -42,7 +40,6 @@ namespace TestOA.DALFactory
                 _UserInfoDal = value;
             }
         }
-
         /// <summary>
         /// 一个业务中精彩涉及到多张表的操作，我们希望一次连接数据库，完成对多张表数据的操作，提高性能
         /// 工作单元模式

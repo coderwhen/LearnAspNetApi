@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestOA.BLL", "TestOA.BLL\TestOA.BLL.csproj", "{988AABCE-86FB-4F05-8091-7593DAC8A6DA}"
 EndProject
@@ -78,5 +78,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2309EF5C-44D4-4F9B-93F3-883BF792A083} = {809498DD-CA89-4E05-A5C9-3D7C5B7280C3}
 		{283AF896-2783-4F2E-BF5D-968484BDDD3D} = {809498DD-CA89-4E05-A5C9-3D7C5B7280C3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB373590-6CFA-4EAE-B9A0-F4E36388E3A0}
 	EndGlobalSection
 EndGlobal

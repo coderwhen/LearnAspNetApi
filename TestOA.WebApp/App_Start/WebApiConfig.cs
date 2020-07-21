@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using TestOA.WebApp.Models;
 
 namespace TestOA.WebApp
 {
@@ -11,8 +10,7 @@ namespace TestOA.WebApp
         public static void Register(HttpConfiguration config)
         {
             // Web API 配置和服务
-
-
+            config.EnableCors(new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*"));
             // Web API 路由
             config.MapHttpAttributeRoutes();
 
@@ -21,8 +19,6 @@ namespace TestOA.WebApp
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
-
             config.Formatters.Clear();
             config.Formatters.Add(new System.Net.Http.Formatting.JsonMediaTypeFormatter());
         }

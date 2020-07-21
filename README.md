@@ -1,23 +1,22 @@
-# WebApi搭建WebSocket
+# WebApi上传与下载文件
 
-### 一、创建控制器和方法（Get）
+### 一、上传文件
 
 ```C#
- 	[RoutePrefix("api/Chat")]
-    public class ChatController : ApiController
-    {
-        //
-        public static List<WebSocket> _socketList = new List<WebSocket>();
-        [HttpGet]
-        [Route("Connect")]
-        public HttpResponseMessage Connect(string nickName)
+ 		[HttpPost]
+        [Route("UpLoad")]
+        public object UpLoad()
         {
-            HttpContext.Current.AcceptWebSocketRequest(ProcessRequest); //在服务器端接受Web Socket请求，传入的函数作为Web Socket的处理函数，待Web Socket建立后该函数会被调用，在该函数中可以对Web Socket进行消息收发
-            return Request.CreateResponse(HttpStatusCode.SwitchingProtocols); //构造同意切换至Web Socket的Response.
+            var formData = HttpContext.Current.Request.Form;
+            var data = formData["FirstName2"];//获取携带的key的值
+            var files = HttpContext.Current.Request.Files.GetMultiple("list");//获取标识的文件可为多个
+            foreach (var item in files)
+            {
+                //保存图片
+                item.SaveAs(HttpContext.Current.Server.MapPath("~/App_Data/") + item.FileName);
+            }
+            return Json(formData);
         }
-
-      
-    }
 ```
 
 ### 二、指定一个方法用于与客户端长连接
